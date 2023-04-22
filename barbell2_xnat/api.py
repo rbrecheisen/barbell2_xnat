@@ -22,6 +22,7 @@ class XnatApiClient:
                     subjects = json.load(f)
             for subject_id in self.project.subjects.keys():
                 if subject_id not in subjects:
+                    print(f'downloading data for subject {subject_id}...')
                     subject = self.project.subjects[subject_id]
                     subject.download_dir(download_dir)
                     subjects.append(subject_id)
