@@ -34,8 +34,9 @@ class XnatApiClient:
 
 if __name__ == '__main__':
     def main():
-        project_id = 'MAASTRO_Thunder'
+        project_id = 'maastrothunder'
         password = open(os.environ['HOME'] + '/xnat.bmia.nl.password.txt', 'r').readline().strip()
         client = XnatApiClient('xnat.bmia.nl', 'rbrecheisen', password, project_id)
-        client.test()
+        client.download_subject_data(
+            '/Users/ralph/Desktop/MaastroThunder')
     main()
