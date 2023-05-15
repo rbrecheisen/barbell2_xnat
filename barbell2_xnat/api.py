@@ -16,9 +16,9 @@ class XnatApiClient:
         os.makedirs(download_dir, exist_ok=True)
         subjects = []
         try:
-            if os.path.isfile('subjects.json'):
+            if os.path.isfile('/tmp/subjects.json'):
                 print('loading subjects...')
-                with open('subjects.json', 'r') as f:
+                with open('/tmp/subjects.json', 'r') as f:
                     subjects = json.load(f)
             for subject_id in self.project.subjects.keys():
                 if subject_id not in subjects:
@@ -28,7 +28,7 @@ class XnatApiClient:
                     subjects.append(subject_id)
         finally:
             print('writing subjects.json...')
-            with open('subjects.json', 'w') as f:
+            with open('/tmp/subjects.json', 'w') as f:
                 json.dump(subjects, f)
 
 
