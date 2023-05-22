@@ -34,9 +34,10 @@ class XnatApiClient:
 
 if __name__ == '__main__':
     def main():
-        project_id = 'maastrothunder'
+        project_id = 'nihradiomics'
+        # project_id = 'maastrothunder'
+        download_directory = f'/Users/Ralph/Desktop/{project_id}'
         password = open(os.environ['HOME'] + '/xnat.bmia.nl.txt', 'r').readline().strip()
         client = XnatApiClient('xnat.bmia.nl', 'rbrecheisen', password, project_id)
-        client.download_subject_data(
-            '/Users/ralph/Desktop/MaastroThunder')
+        client.download_subject_data(download_directory)
     main()
